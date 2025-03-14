@@ -1,0 +1,31 @@
+server:
+  nodes:
+   - master
+  node:
+    name: manager_01
+    type: master
+    ssl:
+      key:  "/etc/wazuh-server/certs/server.key"
+      cert: "/etc/wazuh-server/certs/server.cert"
+      ca:  "/etc/wazuh-server/certs/server.ca"
+  jwt:
+    private_key: "/etc/wazuh-server/certs/private-key.pem"
+    public_key: "/etc/wazuh-server/certs/public-key.pem"
+management_api:
+  host:
+    - "0.0.0.0"
+    - "::"
+communications_api:
+  host: "0.0.0.0"
+indexer:
+    hosts:
+      - host: "127.0.0.1"
+        port: 9200
+    username: "admin"
+    password: "admin"
+    ssl:
+      use_ssl: true
+      key: "/etc/wazuh-server/certs/admin-key.pem"
+      certificate: "/etc/wazuh-server/certs/admin.pem"
+      certificate_authorities:
+        - "/etc/wazuh-server/certs/server.ca"

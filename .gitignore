@@ -1,0 +1,12 @@
+.vagrant/
+*.rpm
+*.deb
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar
+*.zip
+*.7z
+*.gz
+*.bz2
+*.xz
