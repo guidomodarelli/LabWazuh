@@ -5,6 +5,7 @@ class VagrantPlugins::ProviderVirtualBox::Action::Network
 end
 
 Vagrant.configure("2") do |config|
+  config.vm.network "public_network", bridge: "Default Switch"
 
     config.vm.define "server" do |server|
       server.vm.box = "generic/rhel9"
