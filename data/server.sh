@@ -15,8 +15,8 @@ bash /tmp/vagrant_data/gencerts.sh .
 mkdir -p /etc/wazuh-indexer/certs
 cp admin.pem  /etc/wazuh-indexer/certs/admin.pem
 cp admin.key /etc/wazuh-indexer/certs/admin-key.pem
-cp indexer.pem  /etc/wazuh-indexer/certs/indexer.pem
-cp indexer-key.pem /etc/wazuh-indexer/certs/indexer-key.pem
+cp indexer.pem  /etc/wazuh-indexer/certs/indexer-1.pem
+cp indexer-key.pem /etc/wazuh-indexer/certs/indexer-1-key.pem
 cp ca.pem /etc/wazuh-indexer/certs/root-ca.pem
 chown -R wazuh-indexer.wazuh-indexer /etc/wazuh-indexer/certs/
 
