@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
       server.vm.hostname = "rhel-server"
       config.vm.provision "file", source: "data", destination: "/tmp/vagrant_data"
 
+      server.vm.provision "shell", privileged: true, path: "data/enable-ssh.sh"
       server.vm.provision "shell", privileged: true, path: "data/server.sh"
     end
 
