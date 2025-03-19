@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
       #end
       server.vm.network "private_network", type: "dhcp"
       server.vm.hostname = "rhel-server"
-      config.vm.provision "file", source: "data", destination: "/tmp/vagrant_data"
+      server.vm.provision "file", source: "data", destination: "/tmp/vagrant_data"
 
       server.vm.provision "shell", privileged: true, path: "data/enable-ssh.sh"
       server.vm.provision "shell", privileged: true, path: "data/server.sh"
@@ -35,8 +35,9 @@ Vagrant.configure("2") do |config|
       #end
       agent.vm.network "private_network", type: "dhcp"
       agent.vm.hostname = "rhel-agent"
-      config.vm.provision "file", source: "data", destination: "/tmp/vagrant_data"
+      agent.vm.provision "file", source: "data", destination: "/tmp/vagrant_data"
 
+      agent.vm.provision "shell", privileged: true, path: "data/enable-ssh.sh"
       agent.vm.provision "shell", privileged: true, path: "data/agent.sh"
     end
 
@@ -51,7 +52,7 @@ Vagrant.configure("2") do |config|
       #end
       agent.vm.network "private_network", type: "dhcp"
       agent.vm.hostname = "ubuntu-agent"
-      config.vm.provision "file", source: "data", destination: "/tmp/vagrant_data"
+      agent.vm.provision "file", source: "data", destination: "/tmp/vagrant_data"
 
       agent.vm.provision "shell", privileged: true, path: "data/agent-deb.sh"
     end
